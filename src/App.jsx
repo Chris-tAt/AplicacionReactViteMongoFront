@@ -1,11 +1,13 @@
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
+import { AuthProvider } from "./context/AuthContext";
 
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
      <Routes>
       <Route path='/' element={<h1>home page</h1>}/>
       {/*sirve para login de usuarios */}
@@ -22,6 +24,7 @@ const App = () => {
       <Route path='/profile' element={<h1>profile</h1>}/>
      </Routes>
     </BrowserRouter>
+    </AuthProvider>
   )
 }
 
