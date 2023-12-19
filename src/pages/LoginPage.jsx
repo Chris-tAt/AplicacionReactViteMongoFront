@@ -2,6 +2,7 @@
 import { useForm } from "react-hook-form";
 import { useAuth } from "../context/AuthContext";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 const LoginPage = () => {
 
@@ -16,6 +17,10 @@ const LoginPage = () => {
   const onSubmit = handleSubmit(data => {
    signin(data)
   });
+
+  // useEffect(() => {
+  //   if(is)
+  // })
 
 
 
