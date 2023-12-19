@@ -2,6 +2,14 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
 import { AuthProvider } from "./context/AuthContext";
+import TasksPage from './pages/TasksPage';
+import TaskFormPage from './pages/TaskFormPage';
+import ProfilePage from './pages/ProfilePage';
+import HomePage from './pages/HomePage';
+
+import ProtectedRoute from "./ProtectedRoute";
+
+
 
 
 const App = () => {
@@ -9,19 +17,23 @@ const App = () => {
     <AuthProvider>
       <BrowserRouter>
      <Routes>
-      <Route path='/' element={<h1>home page</h1>}/>
+      <Route path='/' element={<HomePage/>}/>
       {/*sirve para login de usuarios */}
       <Route path='/login' element={<LoginPage/>}/>
       {/* sirve para registro */}
       <Route path='/register' element={<RegisterPage/>}/>
-      {/*listar todas la tareas */}
-      <Route path='/tasks' element={<h1>Tasks Page</h1>}/>
+
+
+     <Route element = {<ProtectedRoute/>}>
+       {/*listar todas la tareas */}
+       <Route path='/tasks' element={<TasksPage/>}/>
       {/* añadir una tarea */}
-      <Route path='/add-task' element={<h1>new tasks</h1>}/>
+      <Route path='/add-task' element={<TaskFormPage/>}/>
       {/* mostrar datos de una tarea en especifico */}
-      <Route path='/tasks/:id' element={<h1>update page</h1>}/>
+      <Route path='/tasks/:id' element={<TaskFormPage/>}/>
       {/* perfil del usuario */}
-      <Route path='/profile' element={<h1>profile</h1>}/>
+      <Route path='/profile' element={<ProfilePage/>}/>
+     </Route>
      </Routes>
     </BrowserRouter>
     </AuthProvider>
