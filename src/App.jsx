@@ -9,6 +9,7 @@ import HomePage from './pages/HomePage';
 
 import ProtectedRoute from "./ProtectedRoute";
 import { TaskProvider } from './context/TasksConstext';
+import Navbar from './components/Navbar';
 
 
 
@@ -18,6 +19,8 @@ const App = () => {
     <AuthProvider>
       <TaskProvider>
       <BrowserRouter>
+      <main className='container mx-auto px-10'>
+      <Navbar/>
      <Routes>
       <Route path='/' element={<HomePage/>}/>
       {/*sirve para login de usuarios */}
@@ -37,6 +40,7 @@ const App = () => {
       <Route path='/profile' element={<ProfilePage/>}/>
      </Route>
      </Routes>
+      </main>
     </BrowserRouter>
       </TaskProvider>
     </AuthProvider>
